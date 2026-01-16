@@ -14,7 +14,7 @@ RUN npm install --force
 COPY . .
 
 # Build the frontend
-RUN npm run build
+RUN npm run dev
 
 # Stage 2: Serve with Nginx
 FROM nginx:stable-alpine
