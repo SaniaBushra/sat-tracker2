@@ -1,13 +1,9 @@
 {
   "packages": [
     "java@21.0.2",
-    "maven@3.9.0",
-    "nodejs@20.0.0",
-    "npm"
+    "maven@3.9.0"
   ],
   "commands": [
-    "cd backend ;mvn clean package -DskipTests",
-    "cd frontend ;npm install",
-    "cd frontend ; npm run build"
+    "cd backend && mvn clean package -DskipTests"
   ]
 }
