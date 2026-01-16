@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'http://trustworthy-solace-production-7618.up.railway.app',
         changeOrigin: true,
       },
     },
