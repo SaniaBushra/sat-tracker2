@@ -1,12 +1,13 @@
 {
   "packages": [
-    "java@21.0.2",       // Java for your backend / Maven builds
-    "maven@3.9.0",       // Maven if your project uses it
-    "nodejs@20.0.0",     // Node.js for npm / frontend build
-    "npm"                // Ensure npm is available
+    "java@21.0.2",
+    "maven@3.9.0",
+    "nodejs@20.0.0",
+    "npm"
   ],
   "commands": [
-    "npm install",       // Install frontend dependencies
-    "npm run build"      // Build your frontend
+    "cd backend ;mvn clean package -DskipTests",
+    "cd frontend ;npm install",
+    "cd frontend ; npm run build"
   ]
 }
