@@ -1,0 +1,8 @@
+com\example\sattrackerbackend\service\AsteroidService$1.class
+com\example\sattrackerbackend\service\AsteroidService.class
+com\example\sattrackerbackend\SatTrackerBackendApplication.class
+com\example\sattrackerbackend\config\WebConfig.class
+com\example\sattrackerbackend\controller\AsteroidController.class
+com\example\sattrackerbackend\controller\SatelliteController.class
+com\example\sattrackerbackend\service\SatelliteService$1.class
+com\example\sattrackerbackend\service\SatelliteService.class
