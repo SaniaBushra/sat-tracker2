@@ -1,0 +1,8 @@
+{
+  "packages": [
+    "java@21.0.2"
+  ],
+  "commands": [
+    "npm run build"
+  ]
+}
