@@ -1,30 +1,30 @@
 # Stage 1: Build the frontend
 FROM node:22-bullseye AS build
 
-# Set working directory
 WORKDIR /app
 
-# Copy only package.json and package-lock.json first (for caching)
+# Copy package files first
 COPY package*.json ./
 
 # Install dependencies
 RUN npm install --force
 
-# Copy all source files
+# Copy source code
 COPY . .
 
-# Build the frontend
-RUN npm run dev
+# Build for production (IMPORTANT)
+RUN npm run build
 
 # Stage 2: Serve with Nginx
 FROM nginx:stable-alpine
 
-# Copy the build output to Nginx html folder
+# Copy built files
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Expose port 80
+# Expose port
 EXPOSE 80
 
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
+
 
