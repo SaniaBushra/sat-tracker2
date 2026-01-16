@@ -1,5 +1,5 @@
 # Stage 1: Build the frontend
-FROM node:20-bullseye AS build
+FROM node:22-bullseye AS build
 
 # Set working directory
 WORKDIR /app
