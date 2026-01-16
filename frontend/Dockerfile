@@ -1,30 +1,30 @@
-# Stage 1: Build the frontend
+# Use Node to build the frontend
 FROM node:22-bullseye AS build
 
+# Set working directory
 WORKDIR /app
 
-# Copy package files first
+# Copy package files and install dependencies
 COPY package*.json ./
-
-# Install dependencies
-RUN npm install --force
+RUN npm install
 
 # Copy source code
 COPY . .
 
-# Build for production (IMPORTANT)
+# Build the Vite frontend
 RUN npm run build
 
-# Stage 2: Serve with Nginx
+# Use Nginx to serve built files
 FROM nginx:stable-alpine
 
-# Copy built files
+# Copy built files from build stage
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Expose port
-EXPOSE 80
+# Expose port 8080 (Vercel uses 8080 internally for containers)
+EXPOSE 8080
 
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
+
 
 
