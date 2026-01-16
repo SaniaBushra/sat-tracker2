@@ -1,14 +1,14 @@
-# Step 1: Use official Node image
+# Stage 1: Build the frontend
 FROM node:20-bullseye AS build
 
 # Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json first (for caching)
+# Copy only package.json and package-lock.json first (for caching)
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm install --force
 
 # Copy all source files
 COPY . .
@@ -16,7 +16,7 @@ COPY . .
 # Build the frontend
 RUN npm run build
 
-# Step 2: Use a lightweight server to serve the built files
+# Stage 2: Serve with Nginx
 FROM nginx:stable-alpine
 
 # Copy the build output to Nginx html folder
@@ -27,3 +27,4 @@ EXPOSE 80
 
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
+
