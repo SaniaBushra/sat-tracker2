@@ -48,12 +48,12 @@ function App() {
 
     try {
       const satResponse = await fetch(
-        `http://localhost:8080/api/satellites/nearby?lat=${position.lat}&lng=${position.lng}&radius=25`
+        `https://trustworthy-solace-production-7618.up.railway.app/api=${position.lat}&lng=${position.lng}&radius=25`
       )
       const satData = await satResponse.json()
 
       const astResponse = await fetch(
-        `http://localhost:8080/api/asteroids/nearby?lat=${position.lat}&lng=${position.lng}&radius=0`
+        `https://trustworthy-solace-production-7618.up.railway.app/api=${position.lat}&lng=${position.lng}&radius=0`
       )
       const astData = await astResponse.json()
 
